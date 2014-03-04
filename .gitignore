@@ -1,2 +1,5 @@
 *.m~
 drake_viewer.out
+.ipynb_checkpoints
+.viewer-prefs
+logfile.tmp
