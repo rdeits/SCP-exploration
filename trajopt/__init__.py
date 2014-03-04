@@ -1,2 +1,2 @@
 from trajopt import Trajopt
-from constraint import Constraint
+from constraint import Constraint, Point
