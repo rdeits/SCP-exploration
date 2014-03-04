@@ -3,17 +3,22 @@ from __future__ import division, print_function
 from pandas import Series
 import numpy as np
 from numpy.linalg import norm
+from matplotlib.pyplot import Circle
 
 def Point(xy):
     x,y = xy
     return Series({'x':x, 'y':y})
 
 class Constraint:
-    def __init__(self, f):
-        self.f = f
+    def __init__(self, constraint_fun, draw_fun=lambda ax: None):
+        self.f = constraint_fun
+        self.draw_fun = draw_fun
 
     def __call__(self, x):
         return self.f(x)
+
+    def draw(self, ax):
+        return self.draw_fun(ax)
 
     def linearize(self, x0):
         """
@@ -81,4 +86,8 @@ class Constraint:
             dc = -(alpha[0] * n.T.dot(J_pa) + alpha[1] * n.T.dot(J_pb))
             dc[slack] = -1
             return c, dc
-        return cls(constraint_fun)
+
+        def draw_fun(ax):
+            ax.add_artist(Circle(obstacle.pt, obstacle.size, color='r', fill=False))
+
+        return cls(constraint_fun, draw_fun)

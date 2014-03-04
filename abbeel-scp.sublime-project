@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/rdeits/drc/software/externals/gurobi/gurobi550/linux64/examples/python"
+		}
+	]
+}
