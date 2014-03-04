@@ -3,3 +3,4 @@ drake_viewer.out
 .ipynb_checkpoints
 .viewer-prefs
 logfile.tmp
+gurobi.log
